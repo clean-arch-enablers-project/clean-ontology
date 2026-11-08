@@ -31,8 +31,11 @@ Clean Ontology describes two complementary subjects: **business entities** (the 
 flowchart TD
     ontology["Ontology declarations"] --> entities["Business entities<br/>(what participates)"]
     ontology --> capabilities["Use cases<br/>(what work is performed)"]
-    entities --> meaning["Canonical names and groupings<br/> Canonical Functions (actor, resource, resource owner)"]
-    capabilities --> work["Boundary (edge or internal)<br/>Impact (affected owner types · operation type)<br/>Authorization metadata"]
+    entities --> names["Canonical names<br/>and groupings"]
+    entities --> functions["Canonical functions<br/>Actor · resource · resource owner"]
+    capabilities --> boundary["Boundary<br/>Edge or internal"]
+    capabilities --> impact["Impact<br/>Affected owner types · operation type"]
+    capabilities --> authorization["Authorization<br/>metadata"]
 
     classDef default fill:#000000,stroke:#ffffff,color:#ffffff
 ```
