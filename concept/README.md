@@ -92,10 +92,10 @@ The relationships answer distinct questions: **who acts**, **what action is requ
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': {'lineColor': '#ffffff', 'edgeLabelBackground': '#000000', 'primaryTextColor': '#ffffff'}}}%%
 flowchart LR
-    actor["Actor<br/>Business entity"] -->|Executes| action["Action<br/>Edge use case"]
-    action -->|Acts upon| resource["Resource<br/>Business entity"]
-    owner["Resource owner<br/>Business entity"] -->|Owns| resource
-    owner -->|Owns| role["Allowing role"]
+    actor["Actor<br/>(a business entity)"] -->|Executes| action["Action<br/>(an edge use case)"]
+    action -->|Acts upon| resource["Resource<br/>(a business entity)"]
+    owner["Resource owner<br/>(a business entity)"] -->|Owns| resource
+    owner -->|Owns| role["Allowing role<br/>(an authorization role)"]
     role -->|Allows access through assignment| actor
     role -->|Governs access to| resource
 
