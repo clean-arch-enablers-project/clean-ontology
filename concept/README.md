@@ -29,10 +29,10 @@ Clean Ontology describes two complementary subjects: **business entities** (the 
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': {'lineColor': '#ffffff', 'edgeLabelBackground': '#000000', 'primaryTextColor': '#ffffff'}}}%%
 flowchart TD
-    ontology["Ontology declarations"] --> entities["Business entities<br/>What participates"]
-    ontology --> capabilities["Use cases<br/>What work is performed"]
-    entities --> meaning["Canonical names and groupings<br/>Actor · resource · resource owner"]
-    capabilities --> work["Edge or internal<br/>Affected owner types · operation type<br/>Authorization metadata"]
+    ontology["Ontology declarations"] --> entities["Business entities<br/>(what participates)"]
+    ontology --> capabilities["Use cases<br/>(what work is performed)"]
+    entities --> meaning["Canonical names and groupings<br/> Canonical Functions (actor, resource, resource owner)"]
+    capabilities --> work["Boundary (edge or internal)<br/>Impact (affected owner types · operation type)<br/>Authorization metadata"]
 
     classDef default fill:#000000,stroke:#ffffff,color:#ffffff
 ```
