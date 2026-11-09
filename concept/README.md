@@ -48,9 +48,9 @@ For a business entity's representation, the declaration identifies **which domai
 
 Actor, resource, and resource owner are **ontological functions** of business entities: the ways they participate in relationships and actions within the domain, the area of activity the software serves.
 
-A **domain concept** names something the system models, such as a user, document, or workspace. Here, **business entity** and **domain entity** refer to that same idea. Its **ontological functions** describe how it participates in the relationships being modeled: a user can act (be an _actor_), a document can be acted upon (_be a resource_), and a workspace can own that document (_be a resource owner_).
+A **domain concept** names something the system models, such as a user, document, or workspace. Here, **business entity** and **domain entity** refer to that same idea. The domain concept's **ontological functions** describe how it participates in the relationships being modeled: a user can act (be an _actor_), a document can be acted upon (_be a resource_), and a workspace can own that document (_be a resource owner_).
 
-These functions can overlap. A user can act upon documents, own resources, and itself be a resource when an administrative action updates it. A workspace can own documents while being the resource targeted by another action.
+The actor, resource, and resource-owner functions can overlap. A user can act upon documents, own resources, and itself be a resource when an administrative action updates it. A workspace can own documents while being the resource targeted by another action.
 
 Taken together, business entities and their ontological functions describe what is being modeled and how it participates as an actor, resource, or resource owner. A single entity can fulfill several of these functions, depending on the relationship or action being described.
 
@@ -60,7 +60,7 @@ Taken together, business entities and their ontological functions describe what 
 
 Different parts of a system may represent the same domain concept for different purposes. A **subdomain** is a part of the domain concerned with a set of responsibilities. Its **representation** is the local model of a concept used to fulfill those responsibilities.
 
-For example, imagine an online store that uses a concept called ***Product*** to represent the items it sells. A ***Catalog*** subdomain, responsible for presenting items to shoppers, represents a product through information such as its name and description. An ***Inventory*** subdomain, responsible for managing stock, represents the same product through information such as its storage location and available quantity. Both representations refer to the same concept, but each contains the fields, relationships, and behavior needed for its own responsibilities.
+For example, imagine an online store that uses a concept called ***Product*** to represent the items it sells. A ***Catalog*** subdomain, responsible for presenting items to shoppers, represents a product through information such as its name and description. An ***Inventory*** subdomain, responsible for managing stock, represents the same product through information such as its storage location and available quantity. The ***Catalog*** and ***Inventory*** representations refer to the same domain concept, but each contains the fields, relationships, and behavior needed for its own responsibilities.
 
 A **canonical name** identifies that shared concept. Both representations can declare the canonical name ***Product*** even when their local names and structures differ. Their ontological functions declare how they participate in their respective subdomains.
 
@@ -135,7 +135,7 @@ Within Clean Ontology, use-case declarations describe who a capability serves, w
 - **Operation type:** whether it reads information or manipulates it through creation, modification, or deletion.
 - **Authorization requirements:** the scope requirements or action identity used for permission decisions.
 
-The declaration describes which kinds of resource owners a capability concerns. For example, an application may contain many workspaces, each owning its own documents. Declaring ***Workspace*** as an affected owner type says that the capability concerns workspace-owned resources, without choosing a specific workspace.
+The affected resource-owner declaration identifies which kinds of owners the capability concerns. For example, an application may contain many workspaces, each owning its own documents. Declaring ***Workspace*** as an affected owner type says that the capability concerns workspace-owned resources, without choosing a specific workspace.
 
 An **owner identifier** distinguishes a particular owner, such as one workspace, from others of the same type. The owner type names the category; the identifier names the specific owner involved in an execution.
 
@@ -149,7 +149,7 @@ Ontology declarations make the relationships available to documentation and tool
 
 Permission tooling can also consume these declarations to register actions and establish standard roles, such as full-access or read-only roles for resource owners. These are practical uses of the vocabulary; the ontology itself defines the meaning that makes such automation possible.
 
-Automatic authorization, including scope-based and role-based evaluation, belongs to **[Clean Autofeatures](https://github.com/clean-arch-enablers-project/clean-autofeatures/blob/feature/hello-world/concept/README.md)**. That concept explains how declared requirements are interpreted and enforced. Here, the focus is on describing the participants, capabilities, and relationships those mechanisms use.
+Automatic authorization, including scope-based and role-based evaluation, belongs to **[Clean Autofeatures](https://github.com/clean-arch-enablers-project/clean-autofeatures/blob/feature/hello-world/concept/README.md)**. The [Clean Autofeatures](https://github.com/clean-arch-enablers-project/clean-autofeatures/blob/feature/hello-world/concept/README.md) concept explains how declared authorization requirements are interpreted and enforced. Here, the focus is on describing the participants, capabilities, and relationships those mechanisms use.
 
 <br>
 
@@ -157,7 +157,7 @@ Automatic authorization, including scope-based and role-based evaluation, belong
 
 Clean Ontology connects actors, actions, resources, resource owners, and authorization roles through explicit relationships. Canonical names preserve shared domain meaning across subdomain representations, while capability declarations describe the work offered by the application.
 
-These declarations are **semantic metadata**: information that readers and tools can inspect and interpret. Components consume it to document the system, provision permissions, and evaluate access. The declarations describe the meaning; those components implement the behavior.
+These declarations are **semantic metadata**: information that readers and tools can inspect and interpret. Documentation and permission components consume the ontology metadata to document the system, provision permissions, and evaluate access. Ontology declarations describe the meaning; the consuming components implement the behavior.
 
 <br>
 <br>
