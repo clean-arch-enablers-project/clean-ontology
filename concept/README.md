@@ -22,9 +22,9 @@ Three participants describe the work being requested:
 - **Action:** the capability an actor requests to perform work upon a resource.
 - **Resource:** the target upon which the action operates.
 
-For example, when a user edits a document, the user is the actor, editing is the action, and the document is the resource. The application carries out that action through a **use case**: a workflow that performs the work required to achieve the requested outcome.
+For example, when a user edits a document, the user is the actor, editing is the action, and the document is the resource. The application carries out that action through a **[use case](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md)**: a workflow that performs the work required to achieve the requested outcome.
 
-Clean Ontology describes two complementary subjects: **business entities** (the concepts participating in the domain) and **use cases** (the capabilities that perform work involving them). Entity declarations identify what is represented and its ontological functions. Use-case declarations identify the capability's audience, affected resource-owner types, and operation characteristics.
+Clean Ontology describes two complementary subjects: **business entities** (the concepts participating in the domain) and **[use cases](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md)** (the capabilities that perform work involving them). Entity declarations identify what is represented and its ontological functions. Use-case declarations identify the capability's audience, affected resource-owner types, and operation characteristics.
 
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': {'lineColor': '#ffffff', 'edgeLabelBackground': '#000000', 'primaryTextColor': '#ffffff'}}}%%
@@ -110,19 +110,19 @@ Business entity declarations describe the participants. Use-case declarations de
 
 ##### Edge and Internal Capabilities
 
-A use case serving an end user or another external actor is called an **edge use case**. It represents the action offered at the application's boundary, accessible through an entry point such as an API or command.
+A [use case](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md) serving an end user or another external actor is called an **edge [use case](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md)**. It represents the action offered at the application's boundary, accessible through an entry point such as an API or command.
 
-Carrying out that work may also require the system to coordinate its own internal operations. Those operations have a different audience and purpose: keeping the system functioning and its information consistent. Workflows developed for these mechanics are called **internal use cases**.
+Carrying out that work may also require the system to coordinate its own internal operations. Those operations have a different audience and purpose: keeping the system functioning and its information consistent. Workflows developed for these mechanics are called **internal [use cases](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md)**.
 
-One use for internal use cases is synchronizing distributed subdomains. In **event-driven architecture (EDA)**, one part of the system publishes an event describing something that happened, and other parts react through their own internal workflows. An internal use case can update a subdomain's local representation in response to such an event, without requiring the originating subdomain to call or understand that synchronization logic.
+One use for internal [use cases](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md) is synchronizing distributed subdomains. In **event-driven architecture (EDA)**, one part of the system publishes an event describing something that happened, and other parts react through their own internal workflows. An internal [use case](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md) can update a subdomain's local representation in response to such an event, without requiring the originating subdomain to call or understand that synchronization logic.
 
-For example, an external actor can request the edge action ***Create Account***. A resulting event can trigger an internal ***Synchronize Membership*** use case in another subdomain. The first capability serves the actor's requested outcome; the second keeps the distributed system's local information aligned. The subdomains coordinate through an agreed event contract rather than depending on each other's internal implementation.
+For example, an external actor can request the edge action ***Create Account***. A resulting event can trigger an internal ***Synchronize Membership*** [use case](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md) in another subdomain. The first capability serves the actor's requested outcome; the second keeps the distributed system's local information aligned. The subdomains coordinate through an agreed event contract rather than depending on each other's internal implementation.
 
-This connects to the **inner flow** and **outer flow** described in [Clean Execution Context](https://github.com/clean-arch-enablers-project/clean-execution-context/blob/feature/hello-world/concept/README.md#execution-identity-versus-flow-identity). Each use case is an inner flow within its application: both ***Create Account*** and ***Synchronize Membership*** have their own execution metadata and outcome. The outer flow describes the broader process connecting their work across the system.
+This connects to the **inner flow** and **outer flow** described in [Clean Execution Context](https://github.com/clean-arch-enablers-project/clean-execution-context/blob/feature/hello-world/concept/README.md#execution-identity-versus-flow-identity). Each [use case](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md) is an inner flow within its application: both ***Create Account*** and ***Synchronize Membership*** have their own execution metadata and outcome. The outer flow describes the broader process connecting their work across the system.
 
-The initiating edge action often gives that end-to-end process its purpose and can supply its name. In this example, ***Create Account*** can name the outer flow as well as the initiating application's inner flow. The execution context carries that outer-flow identity and the execution instance's correlation ID through the participating work, including event-driven continuation. ***Synchronize Membership*** retains its own inner-flow identity while participating in the outer ***Create Account*** process.
+The initiating edge action often gives that end-to-end process its purpose and can supply its name. In this example, ***Create Account*** can name the outer flow as well as the initiating application's inner flow. The [execution context](https://github.com/clean-arch-enablers-project/clean-execution-context/blob/feature/hello-world/concept/README.md) carries that outer-flow identity and the execution instance's correlation ID through the participating work, including event-driven continuation. ***Synchronize Membership*** retains its own inner-flow identity while participating in the outer ***Create Account*** process.
 
-Edge and internal therefore describe a use case's audience and purpose; inner and outer describe the local workflow and the broader process it participates in. An edge use case is still an inner flow within its application, even when it initiates and names the outer flow.
+Edge and internal therefore describe a [use case](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md)'s audience and purpose; inner and outer describe the local workflow and the broader process it participates in. An edge [use case](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md) is still an inner flow within its application, even when it initiates and names the outer flow.
 
 <br>
 
@@ -130,7 +130,7 @@ Edge and internal therefore describe a use case's audience and purpose; inner an
 
 Within Clean Ontology, use-case declarations describe who a capability serves, whose resources it affects, what kind of operation it performs, and which permissions it requires:
 
-- **Boundary:** whether the capability is an edge or internal use case.
+- **Boundary:** whether the capability is an edge or internal [use case](https://github.com/clean-arch-enablers-project/clean-use-cases/blob/feature/hello-world/concept/README.md).
 - **Affected resource-owner types:** the categories of owners whose resources it concerns, such as ***Workspace***.
 - **Operation type:** whether it reads information or manipulates it through creation, modification, or deletion.
 - **Authorization requirements:** the scope requirements or action identity used for permission decisions.
@@ -149,7 +149,7 @@ Ontology declarations make the relationships available to documentation and tool
 
 Permission tooling can also consume these declarations to register actions and establish standard roles, such as full-access or read-only roles for resource owners. These are practical uses of the vocabulary; the ontology itself defines the meaning that makes such automation possible.
 
-Automatic authorization, including scope-based and role-based evaluation, belongs to **Clean Autofeatures**. That concept explains how declared requirements are interpreted and enforced. Here, the focus is on describing the participants, capabilities, and relationships those mechanisms use.
+Automatic authorization, including scope-based and role-based evaluation, belongs to **[Clean Autofeatures](https://github.com/clean-arch-enablers-project/clean-autofeatures/blob/feature/hello-world/concept/README.md)**. That concept explains how declared requirements are interpreted and enforced. Here, the focus is on describing the participants, capabilities, and relationships those mechanisms use.
 
 <br>
 
